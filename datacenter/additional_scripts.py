@@ -16,7 +16,9 @@ def get_duration(user):
 
 
 def format_duration(delta):
-    time_in_storage = time.strftime("%H:%M:%S", time.gmtime(delta))
+    hours = delta // 3600
+    minutes = (delta % 3600) // 60
+    time_in_storage = f'{hours:02}ч {minutes:02}мин'
     return time_in_storage
 
 
