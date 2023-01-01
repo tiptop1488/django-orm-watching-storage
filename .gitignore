@@ -6,8 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+
 # Distribution / packaging
 .Python
+venv/
 build/
 develop-eggs/
 dist/
@@ -24,6 +26,10 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+*.idea
+*.poetry.lock
+*.pyproject.toml
+*.gitattributes
 MANIFEST
 
 # PyInstaller
