@@ -6,8 +6,6 @@ from . import additional_scripts
 
 
 def passcard_info_view(request, passcode):
-
-    passcard = Passcard.objects.all()[0]
     user = get_object_or_404(Passcard, passcode=passcode)
     all_visits = Visit.objects.filter(passcard=user)
     this_passcard_visits = []
@@ -24,7 +22,7 @@ def passcard_info_view(request, passcode):
         this_passcard_visits.append(visit_info)
 
     context = {
-        'passcard': passcard,
+        'passcard': user,
         'this_passcard_visits': this_passcard_visits
     }
 
