@@ -1,9 +1,9 @@
 from django.utils import timezone
 
 
-def get_duration(user):
-    time_entered = user.entered_at
-    leaved_at = user.leaved_at
+def get_duration(visit):
+    time_entered = visit.entered_at
+    leaved_at = visit.leaved_at
     if leaved_at:
         delta = leaved_at - time_entered
         delta = delta.seconds
@@ -14,13 +14,13 @@ def get_duration(user):
     return delta
 
 
-def format_duration(delta):
-    hours = delta // 3600
-    minutes = (delta % 3600) // 60
-    time_in_storage = f'{hours:02}ч {minutes:02}мин'
+def format_duration(duration):
+    hours = duration // 3600
+    minutes = (duration % 3600) // 60
+    time_in_storage = f'{int(hours):02}ч {int(minutes):02}мин'
     return time_in_storage
 
 
-def is_visit_long(delta):
+def is_visit_long(duration):
     hour = 3600
-    return delta > hour
+    return duration > hour

@@ -14,14 +14,14 @@ def storage_information_view(request):
         duration = additional_scripts.format_duration(delta)
         is_strange = additional_scripts.is_visit_long(delta)
 
-        user_info = {
+        visits_info = {
         'who_entered': user.passcard.owner_name,
         'entered_at': user.entered_at,
         'duration': duration,
         'is_strange': is_strange,
         }
 
-        non_closed_visits.append(user_info)
+        non_closed_visits.append(visits_info)
 
     context = {
         'non_closed_visits': non_closed_visits,
