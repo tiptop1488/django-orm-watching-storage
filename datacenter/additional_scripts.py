@@ -1,4 +1,3 @@
-import time
 from django.utils import timezone
 
 
@@ -24,7 +23,4 @@ def format_duration(delta):
 
 def is_visit_long(delta):
     hour = 3600
-    if delta > hour:
-        return True
-    else:
-        return False
+    return delta > hour
